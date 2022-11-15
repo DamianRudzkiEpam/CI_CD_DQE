@@ -15,7 +15,7 @@ pipeline {
             branch 'feature/*'
     	}
     	steps {
-        	sh 'git fetch origin'
+        	sh 'git fetch --all'
         	sh 'git checkout develop'
 			sh 'git merge $BRANCH_NAME'
     	}
