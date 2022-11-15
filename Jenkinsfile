@@ -10,12 +10,14 @@ pipeline {
                 sh 'python3 -m unittest -v tests.py'
             }
 		}
-	stage('myConditionalStage') {
+	stage('Merge to develop') {
     	when {
-        	branch 'myBranch'
+    		branch 'feature/*'
     	}
     	steps {
-        	echo 'triggered by myBranch'
+        	git checkout develop
+			git pull origin develop
+			git merge $BRANCH_NAME
     	}
 	}
 	stage('echo') {
@@ -25,4 +27,3 @@ pipeline {
 		}
 	}
 }
-			
