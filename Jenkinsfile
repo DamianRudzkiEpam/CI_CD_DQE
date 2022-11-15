@@ -18,7 +18,6 @@ pipeline {
                 sh '''
                     git config user.name 'DamianRudzkiEpam'
                     git config user.email 'damian_rudzki@epam.com'
-                    git remote add origin git@github.com:DamianRudzkiEpam/CI_CD_DQE.git
                     git fetch --all
                     git checkout $BRANCH_NAME
                     git checkout develop
