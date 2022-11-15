@@ -12,7 +12,7 @@ pipeline {
 		}
 	stage('Merge to develop') {
     	when {
-    		branch 'feature*'
+            branch 'feature/*'
     	}
     	steps {
         	sh 'git fetch origin'
