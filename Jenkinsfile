@@ -16,11 +16,13 @@ pipeline {
             }
             steps {
                 sh '''
-                git fetch --all
-                git checkout $BRANCH_NAME
-                git checkout develop
-                git merge $BRANCH_NAME
-                git push origin develop
+                    git config user.name 'DamianRudzkiEpam'
+                    git config user.email 'damian_rudzki@epam.com'
+                    git fetch --all
+                    git checkout $BRANCH_NAME
+                    git checkout develop
+                    git merge $BRANCH_NAME
+                    git push origin develop
                 '''
             }
         }
