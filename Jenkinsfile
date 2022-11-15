@@ -2,15 +2,26 @@ pipeline {
 	agent any
 
 	stages {
-		stage('install req') {
-			steps {
-				sh 'pip install -r requirements.txt'
-			}
+        stage('Test') {
+            when {
+                branch 'feature/*'
+            }
+            steps {
+                sh 'python3 -m unittest -v tests.py'
+            }
 		}
-		stage('run tests') {
-			steps {
-				sh 'python3 test.py'
-			}
+	stage('myConditionalStage') {
+    	when {
+        	branch 'myBranch'
+    	}
+    	steps {
+        	echo 'triggered by myBranch'
+    	}
+	}
+	stage('echo') {
+		steps {
+		echo 'Deploying'
+            }
 		}
 	}
 }
