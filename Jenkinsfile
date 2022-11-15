@@ -17,7 +17,7 @@ pipeline {
     	steps {
         	sh 'git fetch --all'
         	sh 'git checkout develop'
-			sh 'git merge ''$BRANCH_NAME'''
+			sh 'git merge '$BRANCH_NAME' '
     	}
 	}
 	stage('echo') {
