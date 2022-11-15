@@ -23,10 +23,21 @@ pipeline {
 			'''
     	}
 	}
-	stage('echo') {
-		steps {
-		echo 'Deploying'
-            }
-		}
+	stage('Deploy to NONPROD') {
+    	when {
+    		branch 'release/*'
+    	}
+    	steps {
+		    echo 'Deploying TO NONPROD....'
+    	}
+	}
+
+    stage('Deploy to PROD') {
+    	when {
+    		branch 'master'
+    	}
+    	steps {
+		    echo 'Deploying TO PROD....'
+    	}
 	}
 }
