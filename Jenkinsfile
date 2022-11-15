@@ -16,6 +16,7 @@ pipeline {
     	}
     	steps {
     	    sh '''
+    	    git fetch --all
             git checkout develop
 			git pull origin develop
 			git merge $BRANCH_NAME
