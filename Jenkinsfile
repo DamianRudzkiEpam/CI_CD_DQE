@@ -18,7 +18,7 @@ pipeline {
     	    sh '''
             git checkout develop
 			git pull origin develop
-			git merge '$BRANCH_NAME'
+			git merge $BRANCH_NAME
 			'''
     	}
 	}
