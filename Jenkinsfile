@@ -12,12 +12,14 @@ pipeline {
 		}
 	stage('Merge to develop') {
     	when {
-            branch 'feature/*'
+    		branch 'feature/*'
     	}
     	steps {
-        	sh 'git fetch --all'
-        	sh 'git checkout develop'
-			sh 'git merge '$BRANCH_NAME' '
+    		'''
+            git checkout develop
+			git pull origin develop
+			git merge '$BRANCH_NAME'
+			'''
     	}
 	}
 	stage('echo') {
