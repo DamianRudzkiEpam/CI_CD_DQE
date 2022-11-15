@@ -1,11 +1,6 @@
 pipeline {
 	agent any
 
-	//when feature branch:
-	// -tests
-	// -if ok, merge to develop
-
-
 	stages {
         stage('Test') {
             when {
@@ -24,6 +19,11 @@ pipeline {
 				git pull origin develop
 				git merge $BRANCH_NAME
 			}
+		}
+		stage('echo') {
+            steps {
+            	echo 'Deploying'
+            }
 		}
 	}
 }
