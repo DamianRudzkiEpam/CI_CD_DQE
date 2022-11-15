@@ -15,9 +15,9 @@ pipeline {
     		branch 'feature/*'
     	}
     	steps {
-        	git checkout develop
-			git pull origin develop
-			git merge $BRANCH_NAME
+        	sh 'git checkout develop'
+			sh 'git pull origin develop'
+			sh 'git merge $BRANCH_NAME'
     	}
 	}
 	stage('echo') {
