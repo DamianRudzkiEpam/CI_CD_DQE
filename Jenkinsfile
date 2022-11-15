@@ -15,7 +15,7 @@ pipeline {
     		branch 'feature/*'
     	}
     	steps {
-    		'''
+    	    sh '''
             git checkout develop
 			git pull origin develop
 			git merge '$BRANCH_NAME'
