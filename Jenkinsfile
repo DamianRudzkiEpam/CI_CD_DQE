@@ -16,8 +16,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    git config user.name 'DamianRudzkiEpam'
-                    git config user.email 'damian_rudzki@epam.com'
+                    git config --global user.name "DamianRudzkiEpam"
+                    git config --global user.email "damian_rudzki@epam.com"
                     git fetch --all
                     git checkout $BRANCH_NAME
                     git checkout develop
