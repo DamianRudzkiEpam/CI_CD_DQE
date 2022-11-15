@@ -2,28 +2,15 @@ pipeline {
 	agent any
 
 	stages {
-        stage('Test') {
-            when {
-                branch 'feature/*'
-            }
-            steps {
-                sh 'python3 -m unittest -v tests.py'
-            }
-		}
-        stage('Merge to develop') {
-            when {
-                branch 'feature/*'
-            }
+		stage('install req') {
 			steps {
-				git checkout develop
-				git pull origin develop
-				git merge $BRANCH_NAME
+				sh 'pip install -r requirements.txt'
 			}
 		}
-		stage('echo') {
-            steps {
-            	echo 'Deploying'
-            }
+		stage('run tests') {
+			steps {
+				sh 'python3 test.py'
+			}
 		}
 	}
 }
